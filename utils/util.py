@@ -349,6 +349,12 @@ def build_news_features_mind(config):
     #deal with doc feature
     entity_type_dict = {}
     entity_type_index = 1
+    # Replace NLU model, MiniLM
+    #model = SentenceTransformer('all-MiniLM-L6-v2')
+    # Replace NLU model, RoBERTa
+    #model = SentenceTransformer('distilroberta-base-msmarco-v1')
+      
+    
     model = SentenceTransformer('distilbert-base-nli-stsb-mean-tokens')
     for news in news_feature_dict:
         sentence_embedding = model.encode(news_feature_dict[news][0])
